@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Christmas Night</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css"
+        integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon"
+        href="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/christmas-tree_1f384.png">
+
+    <style>
+        #div01 {
+            background-image: url("assets/Snow-background-night.png");
+        }
+
+        #div02 {
+            background-image: url("assets/village.jpeg");
+        }
+
+        #div1,
+        #div6 {
+            background-image: url("assets/konoha.jpeg");
+        }
+
+        #div2 {
+            background-image: url("assets/konoha2.jpeg");
+        }
+
+        #div3 {
+            background-image: url("assets/konoha3.jpeg");
+        }
+
+        #div4 {
+            background-image: url("assets/konoha4.png");
+        }
+
+        #div5 {
+            background-image: url("assets/sky_1.jpeg");
+        }
+
+        #div01,
+        #div02,
+        #div1,
+        #div2,
+        #div3,
+        #div4,
+        #div5,
+        #div6 {
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+        integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+        integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous">
+    </script>
+
+
+</head>
+
+<body>
+    <div style="background-color:#001133;height:100vh"></div>
+
+
+    <div id="div01" class="innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img class="scrollable dropshadow1" data-top=20 data-top2=70 data-left=0 data-left2=99 data-width=20
+            data-width2=60 src="assets/santas-sky.png"
+            style="position:absolute;width:20%;top:0%;left:0%;filter:grayscale(.3) blur(0px);">
+        <img class="scrollable dropshadow1" data-top=0 data-top2=50 data-left=0 data-left2=10 data-width=100
+            data-width2=100 src="assets/snow.png"
+            style="position:absolute;width:100%;top:0%;left:0%;filter:grayscale(.3) blur(0px);">
+    </div>
+
+    <div style="background-color:#001133;height:100vh" class="dropshadow1"></div>
+
+    <div id="div02" class="innershadow1" style="background-color:black;height:200vh;position:relative;">
+        <img class="scrollable dropshadow1" data-top=65 data-top2=70 data-left=15 data-left2=15 data-width=20
+            data-width2=30 src="assets/kids01.png"
+            style="position:absolute;width:20%;top:0%;left:0%;filter:grayscale(.3) blur(0px);">
+        <img class="scrollable dropshadow1" data-top=68 data-top2=73 data-left=65 data-left2=65 data-width=20
+            data-width2=30 src="assets/kids02.png"
+            style="position:absolute;width:20%;top:0%;left:0%;filter:grayscale(.3) blur(0px);">
+        <img class="scrollable dropshadow1" data-top=68 data-top2=73 data-left=40 data-left2=40 data-width=20
+            data-width2=30 src="assets/santas-gift.png"
+            style="position:absolute;width:20%;top:0%;left:0%;filter:grayscale(.3) blur(0px);">
+            <img class="scrollable dropshadow1" data-top=-1 data-top2=53 data-left=0 data-left2=0 data-width=100
+            data-width2=100 src="assets/snow.png"
+            style="position:absolute;width:100%;top:0%;left:0%;filter:grayscale(.3) blur(0px);">
+
+    </div>
+
+    <!-- <div style="background-color:dodgerblue;height:100vh" class="dropshadow1"></div> -->
+
+  
+
+    <script>
+        $(document).ready(function () {
+            var winh = $(window).height();
+            $(window).scroll(function () {
+                var scrolled = $(window).scrollTop();
+                $(".scrollable").each(function () {
+                    var parent_pos = $(this).parent().offset().top;
+                    var next_pos = parent_pos + $(this).parent().height();
+                    var parent_scrolled = scrolled - $(this).parent().offset().top;
+                    if (parent_scrolled > 0 && scrolled < next_pos - winh) {
+
+                        if ($(this).attr("data-left")) {
+                            $(this).css('left', (($(this).data('left2') - $(this).data(
+                                'left')) * parent_scrolled / winh + $(this).data(
+                                'left')) + '%');
+                        }
+                        if ($(this).attr("data-top")) {
+                            $(this).css('top', (($(this).data('top2') - $(this).data('top')) *
+                                parent_scrolled / winh + $(this).data('top')) + '%');
+                        }
+                        if ($(this).attr("data-width")) {
+                            $(this).css('width', (($(this).data('width2') - $(this).data(
+                                'width')) * parent_scrolled / winh + $(this).data(
+                                'width')) + '%');
+                        }
+                    }
+                });
+            }); //end of win scroll
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $(window).scroll(function () {
+                var scrolled = $(window).scrollTop();
+                var winh = $(window).height();
+                $(".scrollable").each(function () {
+                    var parent_pos = $(this).parent().offset().top;
+                    var next_pos = $(this).parent().next().offset().top;
+                    var parent_height = $(this).parent().height();
+                    var parent_scrolled = scrolled - parent_pos + winh * 0.25;
+
+                    if ($(this).parent().hasClass("horizontal")) {
+                        if ($(this).attr("data-left1")) {
+                            $(this).css('transform', "translateX(" + (($(this).data('left2') -
+                                    $(this).data('left1')) * parent_scrolled /
+                                parent_height + $(this).data('left1')) + 'vw)');
+                        }
+
+                    } else {
+                        if (scrolled > parent_pos - winh * 0.25 && scrolled < next_pos - winh *
+                            0.25) {
+
+                            if ($(this).attr("data-left1")) {
+                                $(this).css('left', (($(this).data('left2') - $(this).data(
+                                    'left1')) * parent_scrolled / parent_height + $(
+                                    this).data('left1')) + '%    ');
+                            }
+                            if ($(this).attr("data-top1")) {
+                                $(this).css('top', (($(this).data('top2') - $(this).data(
+                                    'top1')) * parent_scrolled / parent_height + $(
+                                    this).data('top1')) + '%');
+                            }
+                            if ($(this).attr("data-width1")) {
+                                $(this).css('width', (($(this).data('width2') - $(this).data(
+                                        'width1')) * parent_scrolled / parent_height +
+                                    $(this).data('width1')) + '%');
+                            }
+                            if ($(this).attr("data-height1")) {
+                                $(this).css('height', (($(this).data('height2') - $(this).data(
+                                        'height1')) * parent_scrolled / parent_height +
+                                    $(this).data('height1')) + '%');
+                            }
+                            if ($(this).attr("data-bottom1")) {
+                                $(this).css('bottom', (($(this).data('bottom2') - $(this).data(
+                                        'bottom1')) * parent_scrolled / parent_height +
+                                    $(this).data('bottom1')) + '%');
+                            }
+                        }
+
+                    }
+
+                });
+                //                console.log($("#testing").offset().left/$(window).width());
+            });
+        });
+    </script>
+</body>
+
+</html>
